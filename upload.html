@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>upload</title>
+    <script type="text/javascript">
+        preload = () => {
+            if(typeof(Storage) !== "undefined"){
+                var filename = document.getElementsByName("filename")[0].value;
+                if(crypto){
+                    var hash = crypto.randomUUID();
+                    localStorage.setItem(filename, hash);
+                    console.log(`set hash ${hash} for file ${filename}`);
+                    console.log(localStorage.getItem(filename));
+                    document.getElementsByName("filehash")[0].value = hash;
+                }
+            } else {
+                console.log("error - no web storage support");
+            }
+        }
+    </script>
+</head>
+<body>
+    <form action="http://localhost:8080/upload" method="post" enctype="multipart/form-data">
+        <label>UPLOAD</label>
+        <br>
+        <input type="file" name="file"/>
+        <br>
+        <label>FILE NAME</label>
+        <br>
+        <input type="text" name="filename"/>
+        <br>
+        <button type="button" onclick="return preload();">hash file name &gt;&gt;&gt;</button>
+        <br>
+        <input type="text" name="filehash"/>
+        <br>
+        <label>upload file</label>
+        <br>
+        <input type="submit" value=">>>"/>
+    </form>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>download</title>
+    <script type="text/javascript">
+        preload = () => {
+            if(typeof(Storage) !== "undefined"){
+                var filename = document.getElementsByName("filename")[0].value;
+                var filehash = localStorage.getItem(filename);
+                document.getElementsByName("filehash")[0].value = filehash;
+                console.log(`returning ${filehash} for file ${filename}`);
+            } else {
+                console.log("error - no web storage support");
+            }
+        }
+    </script>
+</head>
+<body>
+    <form action="http://localhost:8080/download" method="get">
+        <label>DOWNLOAD</label>
+        <br>
+        <label>FILE NAME</label>
+        <br>
+        <input type="text" name="filename"/>
+        <br>
+        <button type="button" onclick="return preload();">retrieve hash &gt;&gt;&gt;</button>
+        <br>
+        <input type="text" name="filehash"/>
+        <br>
+        <input type="submit" value=">>>"/>
+    </form>
+</body>
+</html>

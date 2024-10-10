@@ -1,0 +1,22 @@
+clone the project from github
+git clone https://github.com/j-s-135/local-storage
+
+run
+uvicorn main:app --port 8080
+
+upload
+open upload.html in browser
+choose file
+type in file name
+select "hash file name"
+the file hash should appear in the text box - that will be the file name that is saved on the server
+select >>> to upload the file
+
+view the file in the uploads folder
+
+download
+open download.html in browser
+type in the file name that you typed on the upload form
+select "retrieve hash >>>"
+the same hash from before should appear in the textbox
+select >>> to download the file
