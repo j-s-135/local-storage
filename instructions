@@ -1,6 +1,13 @@
 clone the project from github
 git clone https://github.com/j-s-135/local-storage
 
+make virtual environment
+python3 -m venv venv
+source venv/bin/activate
+
+install
+pip3 install -r requirements.txt
+
 run
 uvicorn main:app --port 8080
 
@@ -20,3 +27,6 @@ type in the file name that you typed on the upload form
 select "retrieve hash >>>"
 the same hash from before should appear in the textbox
 select >>> to download the file
+
+exit virtual environment
+deactivate
