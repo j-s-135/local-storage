@@ -1,5 +1,6 @@
 clone the project from github
 git clone https://github.com/j-s-135/local-storage
+cd local-storage
 
 make virtual environment
 python3 -m venv venv
